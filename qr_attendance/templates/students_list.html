@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Students</h2>
+
+<table border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Batch</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Device ID</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{ s.roll_number }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.batch }}</td>
+        <td>{{ s.course }}</td>
+        <td>{{ s.year }}</td>
+        <td>{{ s.device_id if s.device_id else "Not Registered" }}</td>
+
+        <td>
+            <!-- Edit -->
+            <a href="/admin/edit_student/{{ s.id }}">
+                <button style="background: #2980b9; color:white;">Edit</button>
+            </a>
+
+            <!-- Delete -->
+            <a href="/admin/delete_student/{{ s.id }}" 
+               onclick="return confirm('Are you sure you want to delete this student?');">
+                <button style="background: red; color:white;">Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/admin/dashboard">
+    <button style="background: gray;">Back</button>
+</a>
+
+{% endblock %}

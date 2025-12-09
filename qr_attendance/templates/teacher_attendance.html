@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Attendance Records</h1>
+
+{% if records %}
+    <table border="1" width="100%" cellpadding="8">
+        <tr>
+            <th>Roll No.</th>
+            <th>Name</th>
+            <th>Timestamp</th>
+            <th>Status</th>
+        </tr>
+
+        {% for r in records %}
+        <tr>
+            <td>{{ r.student.roll_number }}</td>
+            <td>{{ r.student.name }}</td>
+            <td>{{ r.timestamp }}</td>
+            <td>{{ r.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No attendance marked yet.</p>
+{% endif %}
+
+<br>
+<a href="/teacher/dashboard">
+    <button>Back to Dashboard</button>
+</a>
+
+{% endblock %}

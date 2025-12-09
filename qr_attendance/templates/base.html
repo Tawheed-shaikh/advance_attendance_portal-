@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Attendance</title>
+    <style>
+        body { font-family: Arial; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 40px auto; background: white;
+                     padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+        h1, h2, h3 { text-align: center; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 12px; width: 100%; background: #007bff; border: none; color: white; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .qr-img { display: block; margin: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

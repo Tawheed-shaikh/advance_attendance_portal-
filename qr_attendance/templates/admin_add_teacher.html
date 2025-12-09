@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add New Teacher</h2>
+
+<form method="POST">
+
+    <label>Full Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Username:</label>
+    <input type="text" name="username" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Add Teacher</button>
+</form>
+
+<br>
+
+<a href="/admin/dashboard">
+    <button style="background:gray;">Back</button>
+</a>
+
+{% endblock %}

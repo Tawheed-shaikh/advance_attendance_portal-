@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Scan Success — Enter Roll Number</h2>
+
+<h3>Session: {{ class_session.course }} - {{ class_session.batch }}</h3>
+
+<form method="POST">
+    <label>Enter Roll Number:</label>
+    <input type="text" name="roll" required>
+    <button type="submit">Submit Attendance</button>
+</form>
+
+{% endblock %}

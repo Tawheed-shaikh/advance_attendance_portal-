@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Teacher Dashboard</h1>
+
+<h3>Today's Sessions</h3>
+
+{% if sessions %}
+    <ul>
+        {% for s in sessions %}
+            <li>
+                <strong>{{ s.course }} - {{ s.batch }}</strong><br>
+                Room: {{ s.room }}<br>
+                Time: {{ s.start_time }} - {{ s.end_time }}<br>
+                <a href="/teacher/session/{{ s.id }}">
+                    <button>View Attendance</button>
+                </a>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No sessions found for today.</p>
+{% endif %}
+
+<a href="/logout">
+    <button style="background:red;">Logout</button>
+</a>
+{% endblock %}

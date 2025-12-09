@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add New Student</h2>
+
+<form method="POST">
+
+    <label>Roll Number:</label>
+    <input type="text" name="roll" required>
+
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Batch:</label>
+    <input type="text" name="batch" placeholder="e.g. BCA-1" required>
+
+    <label>Course:</label>
+    <input type="text" name="course" placeholder="e.g. BCA" required>
+
+    <label>Year:</label>
+    <input type="text" name="year" placeholder="e.g. 1st / 2nd / 3rd" required>
+
+    <label>Device ID (optional):</label>
+    <input type="text" name="device_id" placeholder="Optional">
+
+    <button type="submit">Add Student</button>
+</form>
+
+<br>
+
+<a href="/admin/dashboard">
+    <button style="background:gray;">Back</button>
+</a>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+    <label>Roll Number:</label><br>
+    <input type="text" name="roll" value="{{ student.roll_number }}" required><br><br>
+
+    <label>Name:</label><br>
+    <input type="text" name="name" value="{{ student.name }}" required><br><br>
+
+    <label>Batch:</label><br>
+    <input type="text" name="batch" value="{{ student.batch }}" required><br><br>
+
+    <label>Course:</label><br>
+    <input type="text" name="course" value="{{ student.course }}" required><br><br>
+
+    <label>Year:</label><br>
+    <input type="text" name="year" value="{{ student.year }}" required><br><br>
+
+    <label>Device ID:</label><br>
+    <input type="text" name="device_id" 
+           value="{{ student.device_id if student.device_id else '' }}"><br><br>
+
+    <button type="submit">Save Changes</button>
+
+</form>
+
+<br>
+<a href="/admin/students">
+    <button style="background: gray;">Back</button>
+</a>
+
+{% endblock %}

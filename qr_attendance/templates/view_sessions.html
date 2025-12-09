@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Class Sessions</h2>
+
+{% if sessions %}
+<table border="1" width="100%" cellpadding="8">
+    <tr>
+        <th>Course</th>
+        <th>Batch</th>
+        <th>Room</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Teacher</th>
+        <th>QR</th>
+    </tr>
+
+    {% for s in sessions %}
+    <tr>
+        <td>{{ s.course }}</td>
+        <td>{{ s.batch }}</td>
+        <td>{{ s.room }}</td>
+        <td>{{ s.date }}</td>
+        <td>{{ s.start_time }} - {{ s.end_time }}</td>
+        <td>{{ s.teacher.name }}</td>
+        <td>
+            <a href="/admin/generate_qr/{{ s.id }}">
+                <button>Generate QR</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No sessions available.</p>
+{% endif %}
+
+<br>
+
+<a href="/admin/dashboard">
+    <button style="background:gray;">Back</button>
+</a>
+
+{% endblock %}

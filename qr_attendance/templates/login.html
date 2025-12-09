@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>QR Attendance – Login</h1>
+
+<form method="POST">
+    <label>Login As:</label>
+    <select name="login_type">
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+    </select>
+
+    <label>Username:</label>
+    <input type="text" name="username" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}

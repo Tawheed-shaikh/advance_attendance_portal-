@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Export Attendance</h2>
+
+<form method="POST">
+    <label>Select mode:</label><br>
+    <input type="radio" id="by_session" name="mode" value="session" checked>
+    <label for="by_session">Export by Session</label><br>
+    <input type="radio" id="all" name="mode" value="all">
+    <label for="all">Export All Attendance</label><br><br>
+
+    <div id="session_select">
+        <label>Select Session:</label>
+        <select name="session_id">
+            {% for s in sessions %}
+                <option value="{{ s.id }}">
+                    {{ s.course }} — {{ s.batch }} — {{ s.room }} — {{ s.date }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <br>
+    <button type="submit">Download CSV</button>
+</form>
+
+<br>
+<a href="/admin/dashboard"><button style="background:gray;">Back</button></a>
+
+<script>
+    // Toggle session dropdown when mode changes
+    const bySession = document.getElementById('by_session');
+    const allMode = document.getElementById('all');
+    const sessionSelectDiv = document.getElementById('session_select');
+
+    function toggle() {
+        sessionSelectDiv.style.display = bySession.checked ? 'block' : 'none';
+    }
+    bySession.addEventListener('change', toggle);
+    allMode.addEventListener('change', toggle);
+    toggle();
+</script>
+
+{% endblock %}

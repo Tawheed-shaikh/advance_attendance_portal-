@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Create Class Session</h2>
+
+<form method="POST">
+
+    <label>Course:</label><br>
+    <input type="text" name="course" required><br><br>
+
+    <label>Batch:</label><br>
+    <input type="text" name="batch" required><br><br>
+
+    <label>Room:</label><br>
+    <input type="text" name="room" required><br><br>
+
+    <label>Select Teacher:</label><br>
+    <select name="teacher" required>
+        {% for t in teachers %}
+            <option value="{{ t.id }}">{{ t.name }} ({{ t.username }})</option>
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <label>Start Time:</label><br>
+    <input type="time" name="start" required><br><br>
+
+    <label>End Time:</label><br>
+    <input type="time" name="end" required><br><br>
+
+    <button type="submit">Create Session</button>
+</form>
+
+<br>
+<a href="/admin/dashboard">
+    <button style="background:gray;">Back</button>
+</a>
+
+{% endblock %}
